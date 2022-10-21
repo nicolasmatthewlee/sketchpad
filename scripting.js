@@ -97,7 +97,7 @@ function changecolor() {
     console.log(color);
 }
 
-addEventListener('click',changecolor);
+addEventListener('dblclick',changecolor);
 
 // add help button
 
@@ -111,4 +111,4 @@ help_button.style.height = '40px';
 help_button.style.borderRadius = '20px';
 help_button.style.marginLeft = '20px';
 clear_button_container.appendChild(help_button);
-help_button.addEventListener('click',() => alert('Mouse over the sketching area to draw. Click to change colors.'))
+help_button.addEventListener('click',() => alert('Mouse over the sketching area to draw. Double click to change colors.'))
