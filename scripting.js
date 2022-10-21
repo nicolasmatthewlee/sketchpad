@@ -3,6 +3,7 @@ const gridlength=30;
 const gap=0;
 
 let color = 'black';
+let mousedown = false;
 
 const blocksize = (gridsize-((gridlength-1)*gap))/gridlength;
 
@@ -19,6 +20,7 @@ document.body.appendChild(grid_container);
 // create grid and add to DOM
 const grid = document.createElement('div');
 grid.setAttribute('id','grid');
+grid.style.userSelect = 'none';
 
 // set css properties
 grid.style.display = 'grid';
@@ -53,7 +55,7 @@ for (let row=0;row<gridlength;row++) {
         block.style.backgroundColor = 'yellow';
 
         // hovering change color
-        block.addEventListener('mouseover',() => block.style.backgroundColor=color)
+        block.addEventListener('mouseover',() => {if (mousedown==true) { block.style.backgroundColor=color}});
         
         grid.appendChild(block);
     }
@@ -111,4 +113,8 @@ help_button.style.height = '40px';
 help_button.style.borderRadius = '20px';
 help_button.style.marginLeft = '20px';
 clear_button_container.appendChild(help_button);
-help_button.addEventListener('click',() => alert('Mouse over the sketching area to draw. Double click to change colors.'))
+help_button.addEventListener('click',() => alert('Mouse down over the sketching area to draw. Double click to change colors.'));
+
+// listen for mousedown or mouseup
+addEventListener('mousedown', () => mousedown=true);
+addEventListener('mouseup', () => mousedown=false);
