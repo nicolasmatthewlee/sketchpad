@@ -64,8 +64,21 @@ function clear_grid() {
     block_array.map(block => block.style.backgroundColor='yellow');
 }
 
-// reset button
-reset_button = document.createElement('button');
-reset_button.textContent = 'Clear Sketchpad';
-reset_button.addEventListener('click',clear_grid);
-document.body.appendChild(reset_button);
+// clear button
+const clear_button_container = document.createElement('div');
+clear_button_container.style.display = 'flex';
+clear_button_container.style.justifyContent = 'center';
+clear_button_container.style.padding = '20px';
+document.body.appendChild(clear_button_container);
+
+const clear_button = document.createElement('button');
+clear_button.textContent = 'Clear';
+clear_button.style.backgroundColor = 'red';
+clear_button.style.color = 'white';
+clear_button.style.borderRadius = '10px';
+clear_button.style.height = '40px';
+clear_button.style.width = '80px';
+clear_button.style.fontSize = '20px';
+clear_button.style.borderColor = 'rgb(255, 94, 94)';
+clear_button.addEventListener('click',clear_grid)
+clear_button_container.appendChild(clear_button);
