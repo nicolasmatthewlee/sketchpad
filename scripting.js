@@ -2,6 +2,8 @@ const gridsize=500;
 const gridlength=30;
 const gap=0;
 
+let color = 'black';
+
 const blocksize = (gridsize-((gridlength-1)*gap))/gridlength;
 
 // create grid_container and add to DOM
@@ -51,7 +53,7 @@ for (let row=0;row<gridlength;row++) {
         block.style.backgroundColor = 'yellow';
 
         // hovering change color
-        block.addEventListener('mouseover',() => block.style.backgroundColor='black')
+        block.addEventListener('mouseover',() => block.style.backgroundColor=color)
         
         grid.appendChild(block);
     }
@@ -82,3 +84,17 @@ clear_button.style.fontSize = '20px';
 clear_button.style.borderColor = 'rgb(255, 94, 94)';
 clear_button.addEventListener('click',clear_grid)
 clear_button_container.appendChild(clear_button);
+
+// add functionality to change color upon mouse click
+
+function changecolor() {
+    const colors = ['red','blue','orange','black'];
+    next=colors.indexOf(color)+1;
+    if (next>=colors.length) {
+        next=0;
+    }
+    color=colors[next];
+    console.log(color);
+}
+
+addEventListener('click',changecolor);
