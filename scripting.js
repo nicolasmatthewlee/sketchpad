@@ -98,3 +98,17 @@ function changecolor() {
 }
 
 addEventListener('click',changecolor);
+
+// add help button
+
+const help_button = document.createElement('button');
+help_button.textContent = '?';
+help_button.style.fontSize = '20px';
+help_button.style.fontWeight = '600';
+help_button.style.fontFamily = 'Courier New, Courier, monospace';
+help_button.style.width = '40px';
+help_button.style.height = '40px';
+help_button.style.borderRadius = '20px';
+help_button.style.marginLeft = '20px';
+clear_button_container.appendChild(help_button);
+help_button.addEventListener('click',() => alert('Mouse over the sketching area to draw. Click to change colors.'))
