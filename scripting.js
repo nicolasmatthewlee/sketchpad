@@ -53,6 +53,7 @@ for (let row=0;row<gridlength;row++) {
         block.style.backgroundColor = 'yellow';
 
         // hovering change color
+        block.addEventListener('mouseover',() => block.style.backgroundColor='black')
         
         grid.appendChild(block);
     }
