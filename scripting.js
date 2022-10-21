@@ -1,6 +1,6 @@
 const gridsize=500;
-const gridlength=20;
-const gap=1;
+const gridlength=30;
+const gap=0;
 
 const blocksize = (gridsize-((gridlength-1)*gap))/gridlength;
 
@@ -9,7 +9,6 @@ const grid_container = document.createElement('div');
 
 // set css properties
 grid_container.style.display = 'flex';
-//grid_container.style.height = '100%';
 grid_container.style.justifyContent = 'center';
 
 // add grid_container to DOM
@@ -27,8 +26,6 @@ grid.style.height = gridsize+'px';
 grid.style.rowGap = gap+'px';
 grid.style.columnGap = gap+'px';
 
-grid.style.backgroundColor = 'lightgrey';
-
 // add grid to DOM
 grid_container.appendChild(grid); 
 
@@ -38,6 +35,7 @@ for (let row=0;row<gridlength;row++) {
 
     for (let col=0;col<gridlength;col++) {
         const block = document.createElement('div');
+        block.setAttribute('id','block');
 
         // set grid positions
         block.style.gridColumnStart=col;
@@ -60,3 +58,14 @@ for (let row=0;row<gridlength;row++) {
 
 }
 
+function clear_grid() {
+    blocks = grid.querySelectorAll('#block');
+    block_array = Array.from(blocks);
+    block_array.map(block => block.style.backgroundColor='yellow');
+}
+
+// reset button
+reset_button = document.createElement('button');
+reset_button.textContent = 'Clear Sketchpad';
+reset_button.addEventListener('click',clear_grid);
+document.body.appendChild(reset_button);
