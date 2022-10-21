@@ -1,0 +1,10 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+#title {
+    font-size: 50px;
+    font-weight: bold;
+    padding: 20px;
+}
